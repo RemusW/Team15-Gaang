@@ -7,7 +7,7 @@ public class ShowTime : MonoBehaviour
 {
 
     [SerializeField]
-    private Text _text;
+    private Text _text; // ezer to do this than get game object, get component
     ElapsedTime timer;
     // Start is called before the first frame update
     void Start()
