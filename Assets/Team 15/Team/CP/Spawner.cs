@@ -28,7 +28,8 @@ public class Spawner : MonoBehaviour
     }
 
     private void Spawn() {
-        nextSpawnTime = Time.time + spawnDelay;
+        nextSpawnTime = Time.time + spawnDelay / (float) (Math.Pow(1.1, Time.time));
+        print(nextSpawnTime);
         Destroy(Instantiate(foodPrefab, transform.position, transform.rotation), 3);
     }
 
