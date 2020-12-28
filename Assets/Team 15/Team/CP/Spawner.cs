@@ -21,15 +21,15 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         // spawnDelay = 1/ (3* Time.deltaTime * (float) Math.Pow(timer.time, 1.1)); //(float) Math.Pow(initSpawnDelay, 0.909091);
-        print(spawnDelay);
+  //      print(spawnDelay);
         if (ShouldSpawn()) {
             Spawn();
         }
     }
 
     private void Spawn() {
-        nextSpawnTime = Time.time + spawnDelay / (float) (Math.Pow(1.1, Time.time));
-        print(nextSpawnTime);
+        nextSpawnTime = Time.time + spawnDelay / (float) (Math.Pow(1.01, Time.time));
+        //print(nextSpawnTime);
         Destroy(Instantiate(foodPrefab, transform.position, transform.rotation), 3);
     }
 
