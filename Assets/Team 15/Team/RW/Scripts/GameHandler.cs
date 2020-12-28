@@ -8,29 +8,30 @@ namespace t15
 {
     public class GameHandler : MonoBehaviour
     {
-        public Text UIText;
-        public string startText;
-        public string winText;
+        private int score = 0;
 
         // Start is called before the first frame update
         void Start()
         {
-            UIText.text = startText;
             MinigameManager.Instance.minigame.gameWin = false;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetButtonDown("Space"))
+            if (score > 3)
             {
                 if (!MinigameManager.Instance.minigame.gameWin)
                 {
                     MinigameManager.Instance.minigame.gameWin = true;
-                    UIText.text = winText;
                     MinigameManager.Instance.PlaySound("win");
                 }
             }
+        }
+
+        void incScore()
+        {
+            score++;
         }
     }
 }
