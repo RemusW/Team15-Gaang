@@ -12,17 +12,19 @@ public class Player : MonoBehaviour
     
     // Update is called once per frame
     void Update() {
-
-    }
-
-    void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.A)) {
             print("A key was pressed");
             sr.flipX = false;
         } else if (Input.GetKeyDown(KeyCode.D)) {
             print("d key was pressed");
             sr.flipX = true;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            print("CHOMP");
         }
     }
 }
