@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class ShowTime : MonoBehaviour
 {
-    public Text _text;
+
+    [SerializeField]
+    private Text _text;
     ElapsedTime timer;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,7 @@ public class ShowTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _text.text = timer.time.ToString("0.0");
+        _text.text = Time.time.ToString("0.0");
+        print(_text.text);
     }
 }

@@ -17,8 +17,9 @@ public class Food : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(timer.time);
+
+        //print(timer.time);
         // multiply by movespeed? increase like quadratic function tho?
-        transform.position = transform.position + new Vector3(0, -Time.deltaTime * (float) Math.Pow(timer.time, 2), 0);
+        transform.position = transform.position + new Vector3(0, -(float) Math.Pow(Time.time, 1.1) / 100, 0);
     }
 }
