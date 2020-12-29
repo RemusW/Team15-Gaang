@@ -12,7 +12,7 @@ namespace t15
         // Start is called before the first frame update
         void Start()
         {
-            int rand = Random.Range(0, foodItem.Length);
+            int rand = Random.Range(0, foodItem.Length - 1);
             GetComponent<SpriteRenderer>().sprite = foodItem[rand];
         }
 

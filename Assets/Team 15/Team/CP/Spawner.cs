@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     private void Spawn() {
         nextSpawnTime = Time.time + spawnDelay;
         //print(nextSpawnTime);
-        Instantiate(foodPrefab, transform.position, transform.rotation);
+        Destroy(Instantiate(foodPrefab, transform.position, transform.rotation), 5);
     }
 
 

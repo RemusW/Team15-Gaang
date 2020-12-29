@@ -14,6 +14,8 @@ public class SumoEater : MonoBehaviour
     private GameObject grabZone;
     private Animator animController;
     private int activeSwipeFrames = 0;
+    private bool caughtFood = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +39,9 @@ public class SumoEater : MonoBehaviour
         }
         float dir = Input.GetAxis("Horizontal");
         animController.SetFloat("dir", dir); 
-
-        bool caughtFood = true;
+        print(caughtFood);
         animController.SetBool("caughtFood", caughtFood); 
+
     }
 
     public void Swipe(int dir) {
@@ -51,7 +53,6 @@ public class SumoEater : MonoBehaviour
             grabZone = transform.GetChild(0).gameObject;
         }
         grabZone.GetComponent<BoxCollider2D>().enabled = true;
-        print(grabZone.GetComponent<BoxCollider2D>().enabled);
         activeSwipeFrames = 5;
     }
 
@@ -61,4 +62,11 @@ public class SumoEater : MonoBehaviour
         eatingSFX[rand].Play();
     }
 
+    public void setCaughtFood(bool b) {
+        caughtFood = b;
+    }
+
+    public void resetCaughtFood() {
+        caughtFood = false;
+    }
 }

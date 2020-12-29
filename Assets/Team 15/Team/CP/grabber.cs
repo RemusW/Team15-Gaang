@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class grabber : MonoBehaviour
 {
-
+    SumoEater script;
     // Start is called before the first frame update
     void Start()
     {
+        script = GameObject.Find("SumoDude").GetComponent<SumoEater>();
 
     }
 
@@ -19,6 +20,7 @@ public class grabber : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        script.setCaughtFood(true);
         other.gameObject.SetActive(false);
         Debug.Log("destroy"); 
     }
