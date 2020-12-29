@@ -42,7 +42,7 @@ namespace t15
 
         public void decScore()
         {
-            if(score>0)
+            if(score>0 && score<3)
                 score--;
         }
 
