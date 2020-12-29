@@ -14,6 +14,9 @@ namespace t15
         void Start()
         {
             index = Random.Range(0, foodItem.Length);
+            if (index == 0) {
+                GetComponent<Animator>().enabled = true; // Bomb animation
+            }
             GetComponent<SpriteRenderer>().sprite = foodItem[index];
         }
 
