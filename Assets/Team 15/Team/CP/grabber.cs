@@ -22,6 +22,5 @@ public class grabber : MonoBehaviour
     {
         script.setCaughtFood(true);
         other.gameObject.SetActive(false);
-        Debug.Log("destroy"); 
     }
 }

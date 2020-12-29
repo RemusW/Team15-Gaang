@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10b6289b71b71e942a2499ed4eb71c02, type: 3}
-  m_Name: Buffet
+  m_Name: Sumo Sushi
   m_EditorClassIdentifier: 
   gameTime: 0
-  music: {fileID: 8300000, guid: 1074d3f722f39e34dab38868547c7a7d, type: 3}
+  music: {fileID: 8300000, guid: 11893dd51d9c7824f8d869ba15181eb3, type: 3}
   sounds: []
   gameWin: 0

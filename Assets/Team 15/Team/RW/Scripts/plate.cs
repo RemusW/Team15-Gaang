@@ -24,6 +24,7 @@ namespace t15
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            GameObject.Find("GameHandler").GetComponent<GameHandler>().incScore();
         }
     }
 }

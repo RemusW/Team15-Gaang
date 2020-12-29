@@ -38,8 +38,7 @@ public class SumoEater : MonoBehaviour
             }
         }
         float dir = Input.GetAxis("Horizontal");
-        animController.SetFloat("dir", dir); 
-        print(caughtFood);
+        animController.SetFloat("dir", dir);
         animController.SetBool("caughtFood", caughtFood); 
 
     }
