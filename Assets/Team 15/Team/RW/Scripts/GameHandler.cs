@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +15,7 @@ namespace t15
         // Start is called before the first frame update
         void Start()
         {
-            MinigameManager.Instance.PlaySound("win");
+            MinigameManager.Instance.PlaySound("tsuzumi");
             MinigameManager.Instance.minigame.gameWin = false;
             //scoreText.text = "loook";
         }
@@ -42,6 +42,26 @@ namespace t15
         public void decScore()
         {
             score--;
+        }
+
+        public void eatSound()
+        {
+            int rand = Random.Range(0, 4);
+            switch (rand)
+            {
+                case 0:
+                    MinigameManager.Instance.PlaySound("slurp");
+                    break;
+                case 1:
+                    MinigameManager.Instance.PlaySound("lowChomp");
+                    break;
+                case 2:
+                    MinigameManager.Instance.PlaySound("highChomp");
+                    break;
+                case 3:
+                    MinigameManager.Instance.PlaySound("Mmm");
+                    break;
+            }
         }
     }
 }

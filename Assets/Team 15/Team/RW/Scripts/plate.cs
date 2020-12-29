@@ -12,7 +12,7 @@ namespace t15
         // Start is called before the first frame update
         void Start()
         {
-            int rand = Random.Range(0, foodItem.Length - 1);
+            int rand = Random.Range(0, foodItem.Length);
             GetComponent<SpriteRenderer>().sprite = foodItem[rand];
         }
 
@@ -25,6 +25,7 @@ namespace t15
         private void OnTriggerEnter2D(Collider2D other)
         {
             GameObject.Find("GameHandler").GetComponent<GameHandler>().incScore();
+            GameObject.Find("GameHandler").GetComponent<GameHandler>().eatSound();
         }
     }
 }
