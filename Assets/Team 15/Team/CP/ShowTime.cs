@@ -19,6 +19,5 @@ public class ShowTime : MonoBehaviour
     void Update()
     {
         _text.text = Time.time.ToString("0.0");
-        print(_text.text);
     }
 }

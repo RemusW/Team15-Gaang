@@ -17,6 +17,7 @@ public class SumoEater : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //grabZone = GameObject.Find("GRAB_ZONE");
         eatingSFX = new AudioSource[3];
         eatingSFX[0] = lowChomp;
         eatingSFX[1] = highChomp;
@@ -28,16 +29,14 @@ public class SumoEater : MonoBehaviour
     void Update()
     {
         if (activeSwipeFrames > 0) {
-            print(grabZone.GetComponent<BoxCollider2D>().isTrigger);
             activeSwipeFrames--;
         } else {
             if (grabZone) {
-                grabZone.GetComponent<BoxCollider2D>().isTrigger = false;
+                grabZone.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
         float dir = Input.GetAxis("Horizontal");
         animController.SetFloat("dir", dir); 
-
 
         bool caughtFood = true;
         animController.SetBool("caughtFood", caughtFood); 
@@ -45,11 +44,14 @@ public class SumoEater : MonoBehaviour
 
     public void Swipe(int dir) {
         if (dir == 1) { // right
-            grabZone = GameObject.Find("GRABZONE_RIGHT");
+            //grabZone.transform.position = new Vector3(4.59f, 1f, -0.3847656f);
+            grabZone = transform.GetChild(1).gameObject;
         } else { // left
-            grabZone = GameObject.Find("GRABZONE_LEFT");
+            //grabZone.transform.position = new Vector3(-4.89f, 1f, -0.3847656f);
+            grabZone = transform.GetChild(0).gameObject;
         }
-        grabZone.GetComponent<BoxCollider2D>().isTrigger = true;
+        grabZone.GetComponent<BoxCollider2D>().enabled = true;
+        print(grabZone.GetComponent<BoxCollider2D>().enabled);
         activeSwipeFrames = 5;
     }
 
@@ -58,4 +60,5 @@ public class SumoEater : MonoBehaviour
         print(rand);
         eatingSFX[rand].Play();
     }
+
 }

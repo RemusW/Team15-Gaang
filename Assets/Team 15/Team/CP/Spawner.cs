@@ -9,8 +9,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private GameObject foodPrefab; // must not be an instanced prefab. (rather, from assets)
-    [SerializeField]
-    private float spawnDelay = 0.2F;
+
+    private float spawnDelay = 1.25f;
     ElapsedTime timer;
 
     void Start() {
@@ -28,9 +28,9 @@ public class Spawner : MonoBehaviour
     }
 
     private void Spawn() {
-        nextSpawnTime = Time.time + spawnDelay / (float) (Math.Pow(1.01, Time.time));
+        nextSpawnTime = Time.time + spawnDelay;
         //print(nextSpawnTime);
-        Destroy(Instantiate(foodPrefab, transform.position, transform.rotation), 3);
+        Instantiate(foodPrefab, transform.position, transform.rotation);
     }
 
 
