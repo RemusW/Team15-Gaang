@@ -9,6 +9,7 @@ namespace t15
     public class GameHandler : MonoBehaviour
     {
         public Text scoreText;
+        public Text winText;
 
         private int score = 0;
 
@@ -17,6 +18,7 @@ namespace t15
         {
             MinigameManager.Instance.PlaySound("tsuzumi");
             MinigameManager.Instance.minigame.gameWin = false;
+            winText.enabled = false;
         }
 
         // Update is called once per frame
@@ -27,6 +29,7 @@ namespace t15
                 if (!MinigameManager.Instance.minigame.gameWin)
                 {
                     MinigameManager.Instance.minigame.gameWin = true;
+                    winText.enabled = true;
                 }
             }
             scoreText.text = "Plates: " + score;

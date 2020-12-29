@@ -14,7 +14,7 @@ namespace t15
         // Update is called once per frame
         void FixedUpdate()
         {
-            transform.position += new Vector3(0, -0.05f, 0);
+            transform.position += new Vector3(0, -0.08f, 0);
         }
     }
 }
