@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject foodPrefab; // must not be an instanced prefab. (rather, from assets)
 
-    private float spawnDelay = 1.25f;
+    private float spawnDelay = 1.0f;
     ElapsedTime timer;
 
     void Start() {
