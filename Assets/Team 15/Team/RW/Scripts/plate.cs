@@ -7,13 +7,14 @@ namespace t15
     public class plate : MonoBehaviour
     {
         private bool isBad;
+        private int index;
         public Sprite[] foodItem;
 
         // Start is called before the first frame update
         void Start()
         {
-            int rand = Random.Range(0, foodItem.Length);
-            GetComponent<SpriteRenderer>().sprite = foodItem[rand];
+            index = Random.Range(0, foodItem.Length);
+            GetComponent<SpriteRenderer>().sprite = foodItem[index];
         }
 
         // Update is called once per frame
@@ -24,8 +25,16 @@ namespace t15
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            GameObject.Find("GameHandler").GetComponent<GameHandler>().incScore();
-            GameObject.Find("GameHandler").GetComponent<GameHandler>().eatSound();
+            if (index == 0)
+            {
+                GameObject.Find("GameHandler").GetComponent<GameHandler>().decScore();
+                GameObject.Find("GameHandler").GetComponent<GameHandler>().boomSound();
+            }
+            else
+            {
+                GameObject.Find("GameHandler").GetComponent<GameHandler>().incScore();
+                GameObject.Find("GameHandler").GetComponent<GameHandler>().eatSound();
+            }
         }
     }
 }

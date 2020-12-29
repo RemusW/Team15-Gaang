@@ -8,7 +8,7 @@ namespace t15
 {
     public class GameHandler : MonoBehaviour
     {
-        //public Text scoreText;
+        public Text scoreText;
 
         private int score = 0;
 
@@ -17,7 +17,6 @@ namespace t15
         {
             MinigameManager.Instance.PlaySound("tsuzumi");
             MinigameManager.Instance.minigame.gameWin = false;
-            //scoreText.text = "loook";
         }
 
         // Update is called once per frame
@@ -28,20 +27,20 @@ namespace t15
                 if (!MinigameManager.Instance.minigame.gameWin)
                 {
                     MinigameManager.Instance.minigame.gameWin = true;
-                    MinigameManager.Instance.PlaySound("Assets/Team 15/SFX/Team15-4.wav");
                 }
             }
+            scoreText.text = "Plates: " + score;
         }
 
         public void incScore()
         {
-            Debug.Log(score);
             score++;
         }
 
         public void decScore()
         {
-            score--;
+            if(score>0)
+                score--;
         }
 
         public void eatSound()
@@ -62,6 +61,21 @@ namespace t15
                     MinigameManager.Instance.PlaySound("Mmm");
                     break;
             }
+        }
+
+        public void boomSound()
+        {
+            MinigameManager.Instance.PlaySound("boom");
+        }
+
+        public void swing1Sound()
+        {
+            MinigameManager.Instance.PlaySound("swing1");
+        }
+
+        public void swing2Sound()
+        {
+            MinigameManager.Instance.PlaySound("swing1");
         }
     }
 }

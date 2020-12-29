@@ -5,13 +5,10 @@ using UnityEngine;
 public class StartIcon : MonoBehaviour
 {
     SpriteRenderer sr;
-    [SerializeField]
-    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        audioSource.Play();
     }
 
     // Update is called once per frame
