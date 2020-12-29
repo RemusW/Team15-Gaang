@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject foodPrefab; // must not be an instanced prefab. (rather, from assets)
 
-    private float spawnDelay = .75f;
+    private float spawnDelay = 1.25f;
     ElapsedTime timer;
 
     void Start() {
@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // spawnDelay = 1/ (3* Time.deltaTime * (float) Math.Pow(timer.time, 1.1)); //(float) Math.Pow(initSpawnDelay, 0.909091);
   //      print(spawnDelay);
@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void Spawn() {
+    private void Spawn() {  
         nextSpawnTime = Time.time + spawnDelay;
         //print(nextSpawnTime);
         Destroy(Instantiate(foodPrefab, transform.position, transform.rotation), 5);
